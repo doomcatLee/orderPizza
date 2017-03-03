@@ -1,4 +1,11 @@
 // Back-End
+
+
+//global var
+var pizza;
+var user;
+
+
 function Customer(name, address, pizzaArray, totalCost) {
   this.name = name;
   this.address = address;
@@ -46,14 +53,12 @@ Pizza.prototype.calculateCost = function() {
   return this.pizzaCost;
 }
 
-//global var
-var pizza = new Pizza();
-var user = new Customer();
-
 //jQuery
 $(function() {
 
-  $("#sec1").click(function() {
+  $("button#main").click(function() {
+    user = new Customer();
+    pizza = new Pizza();
     $("#sec1").hide();
     $("#sec2").fadeIn();
   });
@@ -100,17 +105,24 @@ $(function() {
 
   $("form#order").submit(function() {
     event.preventDefault();
-    var name = $("#name").val();
-    var streetAddress = "";
+    user.name = $("#name").val();
+    user.address = "";
     for (var i = 0; i < 3; i++) {
-      streetAddress += ($("#" + i).val()) + " ";
+      if ($("#" + i).val() === "") {
+        alert("Please fill in all the required form");
+        return false;
+      }
+      user.address += ($("#" + i).val() + " ");
     }
-    user.name = name;
-    user.address = streetAddress;
-    $("span#name").text(name);
-    $("span#address").text(streetAddress);
-    $("#sec5").hide();
-    $("#sec6").show();
+    if (user.name === "") {
+      alert("Please fill in all the required form");
+      return false;
+    } else {
+      $("span#name").text(user.name);
+      $("span#address").text(user.address);
+      $("#sec5").hide();
+      $("#sec6").show();
+    }
   }); //order form
 
   $("#again").click(function() {

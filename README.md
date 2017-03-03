@@ -17,6 +17,7 @@ User picks a topping, returns that toppings array to the Pizza object| chooseTop
 User picks a size, returns that size to the pizza object | chooseSize() | "medium"
 Calculate the cost of the pizza depending on size and number of toppings | calculateCost()|"$40"
 If user finishes order or add another pizza, add current cost to the total user cost| addMorePizza()|
+If user leaves one of the inputs blank, throw an error | missing input| alert("missing info")
 
 
 
