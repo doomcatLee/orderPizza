@@ -16,48 +16,52 @@
   </section>
   <section id="sec2" class="container">
     <h1>1. Select pizza toppings</h1>
-    <form id="topping">
-      <div class="checkbox">
-        <label><input type="checkbox" value="Artichoke">Artichoke</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Bacon">Bacon</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Mushroom">Mushroom</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Goat Cheese">Goat Cheese</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Italian Sausage">Italian Sausage</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Green peppers">Green peppers</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Grilled chicken">Grilled Chicken</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Next</button>
-    </form>
+    <div id="box">
+      <form id="topping">
+        <div class="checkbox">
+          <label><input type="checkbox" value="Artichoke" name=checkBox >Artichoke</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="Bacon" name=checkBox>Bacon</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="Mushroom" name=checkBox>Mushroom</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="Goat Cheese" name=checkBox>Goat Cheese</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="Italian Sausage" name=checkBox>Italian Sausage</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="Green peppers" name=checkBox>Green peppers</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="Grilled chicken" name=checkBox>Grilled Chicken</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Next</button>
+      </form>
+    </div>
   </section>
   <section id="sec3" class="container">
     <h1>2. Select pizza size</h1>
-    <form id="size">
-      <div class="radio">
-        <label><input type="radio" name="optradio" value="Small">Small</label>
-      </div>
-      <div class="radio">
-        <label><input type="radio" name="optradio" value="Medium">Medium</label>
-      </div>
-      <div class="radio">
-        <label><input type="radio" name="optradio" value="Large">Large</label>
-      </div>
-      <div class="radio">
-        <label><input type="radio" name="optradio" value="Extra large">Extra Large</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Next</button>
-    </form>
+    <div id="box">
+      <form id="size">
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="Small">Small</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="Medium">Medium</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="Large">Large</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="Extra large">Extra Large</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Next</button>
+      </form>
+    </div>
   </section>
   <section id="sec4" class="container">
     <h1>Your pizza is almost ready!</h1>
@@ -66,15 +70,17 @@
         <ul>
           <li>Pizza toppings: <span id="topping"></span></li>
           <li>Pizza size: <span id="size"></span></li>
-          <li>Cost: <span id="cost"></span></li>
+          <li>Cost: $<span id="cost"></span></li>
         </ul>
       </div>
       <div id="totalCost" class="col-md-6">
         <h2>Total Cost: $<span id="total"></span></h2>
       </div>
     </div>
-    <button id="cost" type="button" class="btn btn-primary">Next</button>
-    <button id="addPizza" type="button" class="btn btn-primary">Add another pizza</button>
+    <div class="row" id="btn">
+      <button id="cost" type="button" class="btn btn-primary">Next</button>
+      <button id="addPizza" type="button" class="btn btn-primary">Add another pizza</button>
+    </div>
   </section>
   <section id="sec5" class="container">
     <form id="order">
@@ -99,8 +105,7 @@
     </form>
   </section>
   <section id="sec6" class="container">
-    <h1>Your order is on the way!</h1>
-    <h2><span id="name"></span>! Your order is on the way at <span id="address"></span></h2>
+    <h1><span id="name"></span>! Your order is on the way at <span id="address"></span></h1>
     <button id="again" type="button" name="button" class="btn btn-primary">Start again!</button>
   </section>
 

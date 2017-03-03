@@ -8,7 +8,7 @@ function Customer(name, address, pizzaArray, totalCost) {
 
 Customer.prototype.addPizza = function(pizza) {
   pizza.pizzaCost = 10;
-  $("#pizzaInfo").append("<ul>" + "<li>Pizza toppings: <span id='topping'></span></li>" + "<li>Pizza size: <span id='size'></span></li>" + "<li>Cost: <span id='cost'></span></li>" + "</ul>");
+  $("#pizzaInfo").append("<ul>" + "<li>Pizza toppings: <span id='topping'></span></li>" + "<li>Pizza size: <span id='size'></span></li>" + "<li>Cost: $<span id='cost'></span></li>" + "</ul>");
 }
 
 
@@ -55,7 +55,7 @@ $(function() {
 
   $("#sec1").click(function() {
     $("#sec1").hide();
-    $("#sec2").show();
+    $("#sec2").fadeIn();
   });
 
   $("form#topping").submit(function() {
@@ -65,7 +65,7 @@ $(function() {
       pizza.chooseTopping($(this).val());
     });
     $("#sec2").hide();
-    $("#sec3").show();
+    $("#sec3").fadeIn();
   }); //topping form
 
   $("form#size").submit(function() {
@@ -81,19 +81,21 @@ $(function() {
     $("span#cost").last().append(pizza.pizzaCost)
     $("span#total").text(user.totalCost)
     $("#sec3").hide();
-    $("#sec4").show();
+    $("#sec4").fadeIn();
   }); //size form
 
   $("button#cost").click(function() {
     $("#sec4").hide();
-    $("#sec5").show();
-  }); //
+    $("#sec5").fadeIn();
+  });
   $("button#addPizza").click(function() {
     user.addPizza(pizza);
     pizza = new Pizza();
+    $("input:radio[name=optradio]").prop('checked', false);
+    $("input:checkbox[name=checkBox]").prop('checked', false);
     $("#sec4").hide();
-    $("#sec2").show();
-  }); //
+    $("#sec2").fadeIn();
+  });
 
   $("form#order").submit(function() {
     event.preventDefault();
