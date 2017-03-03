@@ -1,16 +1,19 @@
 body {
   background-image: url("../img/pizza.jpg");
   background-size: cover;
+  font-family: 'Trocchi', sans-serif;
 }
 
-#sec1,#sec2,#sec3,#sec5,#sec6{
+#sec1,#sec2,#sec3,#sec5{
   margin-right: 80%;
   margin-top: 20%;
   margin-left: 5%;
 }
 
 #sec1 h1{
-  margin-bottom: 30px;
+  margin-bottom: 5%;
+  font-family: 'Pacifico',sans-serif;
+  font-size: 100px;
 }
 
 #sec2,#sec3,#sec4,#sec5,#sec6{
@@ -59,7 +62,7 @@ ul{
 }
 
 ul{
-  border: 1px solid black;
+  border: 2px solid black;
   font-size: 23px;
   border-radius: 10px;
 }
@@ -68,8 +71,28 @@ ul{
   text-align: center;
 }
 
+#sec6{
+  margin-top: 30%;
+  margin-right: 50%;
+  height: 500px;
+}
+
+#sec6 h1{
+  margin-bottom: 50px;
+  line-height: 200%;
+}
+
+
 .btn{
   font-size: 20px;
   border-radius: 10px;
   margin-right: 30px;
+}
+
+#sec4 h1{
+  margin-bottom: 50px;
+}
+
+span#topping,span#size,span#cost{
+  color: #e59500;
 }

@@ -33,13 +33,13 @@ Pizza.prototype.calculateCost = function() {
     this.pizzaCost += 3;
   }
   if (this.size === "Small") {
-    this.pizzaCost += 5;
+    this.pizzaCost += 0;
   } else if (this.size === "Medium") {
-    this.pizzaCost += 10;
+    this.pizzaCost += 5;
   } else if (this.size === "Large") {
-    this.pizzaCost += 15;
+    this.pizzaCost += 10;
   } else if (this.size === "Extra large") {
-    this.pizzaCost += 20;
+    this.pizzaCost += 15;
   } else {
     console.log("do nothing");
   }
@@ -88,6 +88,7 @@ $(function() {
     $("#sec4").hide();
     $("#sec5").fadeIn();
   });
+
   $("button#addPizza").click(function() {
     user.addPizza(pizza);
     pizza = new Pizza();
@@ -113,6 +114,8 @@ $(function() {
   }); //order form
 
   $("#again").click(function() {
+    $("input:radio[name=optradio]").prop('checked', false);
+    $("input:checkbox[name=checkBox]").prop('checked', false);
     $("#sec6").hide();
     $("#sec2").show();
   });

@@ -7,15 +7,16 @@
 
 ## Description
 
-Allows user to make a pizza. User chooses multiple toppings and size which they will see the cost of the pizza.
+Allows user to order a pizza. User chooses multiple toppings and 4 sizes. Base cost of the pizza is $10, and additional $3 per topping. Medium pizza adds additional $5, large pizza $10, extra large pizza $15. Once the order is done, it prompts for a delivery address which then gets delivered to the address in our imagination.
 
 ## Specifications
 
 |Behavior|Input|Output|
 |--|--|--|
-|User picks a topping, returns that topping to the Pizza object| chooseTopping() | "Pepperoni"|
+|User picks a topping, returns that toppings array to the Pizza object| chooseTopping() | ["pep", "bacon", "onions"]|
 |User picks a size, returns that size to the pizza object | chooseSize() | "medium"|
 |Calculate the cost of the pizza depending on size and number of toppings | calculateCost()|"$40"|
+|If user finishes order or add another pizza, add current cost to the total user cost| addMorePizza() |
 
 
 
