@@ -123,6 +123,6 @@ $(function() {
     $("input:radio[name=optradio]").prop('checked', false);
     $("input:checkbox[name=checkBox]").prop('checked', false);
     $("#sec6").hide();
-    $("#sec2").show();
+    $("#sec1").show();
   }); //again click
 }); //jQuery

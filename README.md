@@ -20,9 +20,6 @@ If user finishes order or add another pizza, add current cost to the total user 
 If user leaves one of the inputs blank, throw an error | missing input| alert("missing info")
 
 
-
-
-
 ## Setup/Installation Requirements
 ```
 cd /desiredLocation
@@ -37,18 +34,22 @@ cd orderPizza
 open index.html
 ```
 
-## Known Bugs
+## If bugs found
 
-Known bugs here
+I LOVE BUGS! Please contact doomcat9167@gmail.com for any known bugs.
+
 
 ## Support and contact details
 
-Contact information here
+Alex at doomcat9167@gmail.com
 
 ## Technologies Used
 
-_bash_
-_git_
+* html
+* CSS
+* JS
+* jquery
+
 
 ### License
 
