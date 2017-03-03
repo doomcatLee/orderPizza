@@ -11,17 +11,15 @@ function Customer(name, address, pizzaArray, totalCost) {
   this.totalCost = 0;
 }
 
-//push pizza object to pizzaArray in User Object, reset pizza cost, add html result
-Customer.prototype.addPizza = function(pizza, target) {
-  this.pizzaArray.push(pizza);
-  pizza.pizzaCost = 10;
-  $("#" + target).append("<ul>" + "<li>Pizza toppings: <span id='topping'></span></li>" + "<li>Pizza size: <span id='size'></span></li>" + "<li>Cost: $<span id='cost'></span></li>" + "</ul>");
-}
-
 function Pizza(toppingArray, size, pizzaCost) {
   this.toppingArray = [];
   this.size = size;
   this.pizzaCost = 10;
+}
+
+//push pizza object to pizzaArray in User Object
+Customer.prototype.addPizza = function(pizza) {
+  this.pizzaArray.push(pizza);
 }
 
 //push one topping to the toppingArray each call
@@ -58,6 +56,12 @@ var togglePage = function(a, b) {
   $("#" + b).fadeIn();
 }
 
+//reset all the checkboxes,radioboxes and input form
+var resetFields = function() {
+  $("input:radio[name=optradio]").prop('checked', false);
+  $("input:checkbox[name=checkBox]").prop('checked', false);
+}
+
 // jQuery
 $(function() {
   $("button#main").click(function() {
@@ -68,7 +72,6 @@ $(function() {
 
   $("form#topping").submit(function() {
     event.preventDefault();
-    var toppingArray = [];
     $('#topping input:checked').each(function() {
       pizza.chooseTopping($(this).val());
     });
@@ -83,9 +86,10 @@ $(function() {
     pizza.toppingArray.forEach(function(each) {
       $("span#topping").last().append(each + ", ");
     });
-    $("span#size").last().append(pizza.size)
-    $("span#cost").last().append(pizza.pizzaCost)
-    $("span#total").text(user.totalCost)
+    $("span#size").last().append(pizza.size);
+    $("span#cost").last().append(pizza.pizzaCost);
+    $("span#total").text(user.totalCost);
+    user.addPizza(pizza);
     togglePage("sec3", "sec4");
   }); //size form
 
@@ -94,10 +98,9 @@ $(function() {
   }); //next click
 
   $("button#addPizza").click(function() {
-    user.addPizza(pizza, "pizzaInfo");
+    $("#pizzaInfo").append("<ul>" + "<li>Pizza toppings:<span id = 'topping'></span></li>" + "<li> Pizza size: <span id = 'size' > </span></li>" + "<li> Cost: $ <span id = 'cost' > </span></li > " + " </ul>");
     pizza = new Pizza();
-    $("input:radio[name=optradio]").prop('checked', false);
-    $("input:checkbox[name=checkBox]").prop('checked', false);
+    resetFields();
     togglePage("sec4", "sec2");
   }); //add Pizza click
 
@@ -121,8 +124,7 @@ $(function() {
   }); //order form
 
   $("#again").click(function() {
-    $("input:radio[name=optradio]").prop('checked', false);
-    $("input:checkbox[name=checkBox]").prop('checked', false);
+    resetFields();
     togglePage("sec6", "sec1");
   }); //again click
 }); //jQuery
