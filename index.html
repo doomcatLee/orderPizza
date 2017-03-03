@@ -10,11 +10,11 @@
 </head>
 
 <body>
-  <section class="container">
+  <section id="sec1" class="container">
     <h1>Order pizza now!</h1>
     <button id="main" type="button" class="btn btn-primary">Start</button>
   </section>
-  <section class="container">
+  <section id="sec2" class="container">
     <h1>1. Select pizza toppings</h1>
     <form id="topping">
       <div class="checkbox">
@@ -41,7 +41,7 @@
       <button type="submit" class="btn btn-primary">Next</button>
     </form>
   </section>
-  <section id="size" class="container">
+  <section id="sec3" class="container">
     <h1>2. Select pizza size</h1>
     <form id="size">
       <div class="radio">
@@ -59,7 +59,7 @@
       <button type="submit" class="btn btn-primary">Next</button>
     </form>
   </section>
-  <section class="container">
+  <section id="sec4" class="container">
     <h1>Your pizza is almost ready!</h1>
     <div class="row">
       <div id="pizzaInfo" class="col-md-6">
@@ -74,9 +74,9 @@
       </div>
     </div>
     <button id="cost" type="button" class="btn btn-primary">Next</button>
-    <button id="addPizza" type="button" class="btn btn-primary">Add Pizza</button>
+    <button id="addPizza" type="button" class="btn btn-primary">More Pizza</button>
   </section>
-  <section class="container">
+  <section id="sec5" class="container">
     <form id="order">
       <div class="form-group">
         <label>Name</label>
@@ -97,9 +97,10 @@
       <button id="userInfo" type="submit" class="btn btn-primary">Order</button>
     </form>
   </section>
-  <section class="container">
+  <section id="sec6" class="container">
     <h1>Your order is on the way!</h1>
     <h2><span id="name">!</span> your order is on the way at <span id="address"></span></h2>
+    <button id="again" type="button" name="button" class="btn btn-primary">Start again!</button>
   </section>
 
 </body>

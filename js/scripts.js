@@ -46,11 +46,17 @@ Pizza.prototype.calculateCost = function() {
   return this.pizzaCost;
 }
 
-
+//global var
 var pizza = new Pizza();
 var user = new Customer();
+
 //jQuery
 $(function() {
+
+  $("#sec1").click(function() {
+    $("#sec1").hide();
+    $("#sec2").show();
+  });
 
   $("form#topping").submit(function() {
     event.preventDefault();
@@ -58,6 +64,8 @@ $(function() {
     $('#topping input:checked').each(function() {
       pizza.chooseTopping($(this).val());
     });
+    $("#sec2").hide();
+    $("#sec3").show();
   }); //topping form
 
   $("form#size").submit(function() {
@@ -72,12 +80,19 @@ $(function() {
     $("span#size").last().append(pizza.size)
     $("span#cost").last().append(pizza.pizzaCost)
     $("span#total").text(user.totalCost)
+    $("#sec3").hide();
+    $("#sec4").show();
   }); //size form
 
-  $("button#cost").click(function() {}); //
+  $("button#cost").click(function() {
+    $("#sec4").hide();
+    $("#sec5").show();
+  }); //
   $("button#addPizza").click(function() {
     user.addPizza(pizza);
     pizza = new Pizza();
+    $("#sec4").hide();
+    $("#sec2").show();
   }); //
 
   $("form#order").submit(function() {
@@ -91,7 +106,14 @@ $(function() {
     user.address = streetAddress;
     $("span#name").text(name);
     $("span#address").text(streetAddress);
+    $("#sec5").hide();
+    $("#sec6").show();
   }); //order form
+
+  $("#again").click(function() {
+    $("#sec6").hide();
+    $("#sec2").show();
+  });
 
 }); //jQuery
 //jQuery
