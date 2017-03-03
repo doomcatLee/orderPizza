@@ -1,3 +1,18 @@
 #sec2,#sec3,#sec4,#sec5,#sec6{
   display: none;
 }
+
+.container#sec1, .container#sec2, .container#sec3, .container#sec6{
+  width: 700px;
+  margin-top: 5%;
+  margin-left: 35%;
+}
+
+
+ul{
+  border: 1px solid black;
+}
+
+#totalCost{
+  text-align: center;
+}
