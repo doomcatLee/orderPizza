@@ -12,7 +12,7 @@ Allows user to order a pizza. User chooses multiple toppings and 4 sizes. Base c
 ## Specifications
 
 Behavior|Input|Output
---|--|--
+---|---|---
 User picks a topping, returns that toppings array to the Pizza object| chooseTopping() | ["pep", "bacon", "onions"]
 User picks a size, returns that size to the pizza object | chooseSize() | "medium"
 Calculate the cost of the pizza depending on size and number of toppings | calculateCost()|"$40"
