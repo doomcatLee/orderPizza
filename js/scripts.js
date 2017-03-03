@@ -11,9 +11,11 @@ function Customer(name, address, pizzaArray, totalCost) {
   this.totalCost = 0;
 }
 
-Customer.prototype.addPizza = function(pizza) {
+//push pizza object to pizzaArray in User Object, reset pizza cost, add html result
+Customer.prototype.addPizza = function(pizza, target) {
+  this.pizzaArray.push(pizza);
   pizza.pizzaCost = 10;
-  $("#pizzaInfo").append("<ul>" + "<li>Pizza toppings: <span id='topping'></span></li>" + "<li>Pizza size: <span id='size'></span></li>" + "<li>Cost: $<span id='cost'></span></li>" + "</ul>");
+  $("#" + target).append("<ul>" + "<li>Pizza toppings: <span id='topping'></span></li>" + "<li>Pizza size: <span id='size'></span></li>" + "<li>Cost: $<span id='cost'></span></li>" + "</ul>");
 }
 
 function Pizza(toppingArray, size, pizzaCost) {
@@ -72,7 +74,6 @@ $(function() {
   $("form#size").submit(function() {
     event.preventDefault();
     pizza.size = $("input:radio[name=optradio]:checked").val();
-    (user.pizzaArray).push(pizza);
     user.totalCost += pizza.calculateCost();
 
     pizza.toppingArray.forEach(function(each) {
@@ -91,7 +92,7 @@ $(function() {
   }); //next click
 
   $("button#addPizza").click(function() {
-    user.addPizza(pizza);
+    user.addPizza(pizza, "pizzaInfo");
     pizza = new Pizza();
     $("input:radio[name=optradio]").prop('checked', false);
     $("input:checkbox[name=checkBox]").prop('checked', false);
