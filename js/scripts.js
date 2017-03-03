@@ -52,13 +52,18 @@ Pizza.prototype.calculateCost = function() {
   return this.pizzaCost;
 }
 
+//give 2 pages, hide the first, and fadeIn second
+var togglePage = function(a, b) {
+  $("#" + a).hide();
+  $("#" + b).fadeIn();
+}
+
 // jQuery
 $(function() {
   $("button#main").click(function() {
     user = new Customer("", "");
     pizza = new Pizza();
-    $("#sec1").hide();
-    $("#sec2").fadeIn();
+    togglePage("sec1", "sec2");
   });
 
   $("form#topping").submit(function() {
@@ -67,8 +72,7 @@ $(function() {
     $('#topping input:checked').each(function() {
       pizza.chooseTopping($(this).val());
     });
-    $("#sec2").hide();
-    $("#sec3").fadeIn();
+    togglePage("sec2", "sec3");
   }); //topping form
 
   $("form#size").submit(function() {
@@ -82,13 +86,11 @@ $(function() {
     $("span#size").last().append(pizza.size)
     $("span#cost").last().append(pizza.pizzaCost)
     $("span#total").text(user.totalCost)
-    $("#sec3").hide();
-    $("#sec4").fadeIn();
+    togglePage("sec3", "sec4");
   }); //size form
 
   $("button#cost").click(function() {
-    $("#sec4").hide();
-    $("#sec5").fadeIn();
+    togglePage("sec4", "sec5");
   }); //next click
 
   $("button#addPizza").click(function() {
@@ -96,8 +98,7 @@ $(function() {
     pizza = new Pizza();
     $("input:radio[name=optradio]").prop('checked', false);
     $("input:checkbox[name=checkBox]").prop('checked', false);
-    $("#sec4").hide();
-    $("#sec2").fadeIn();
+    togglePage("sec4", "sec2");
   }); //add Pizza click
 
   $("form#order").submit(function() {
@@ -116,14 +117,12 @@ $(function() {
     user.name = $("#name").val();
     $("span#name").text(user.name);
     $("span#address").text(user.address);
-    $("#sec5").hide();
-    $("#sec6").show();
+    togglePage("sec5", "sec6");
   }); //order form
 
   $("#again").click(function() {
     $("input:radio[name=optradio]").prop('checked', false);
     $("input:checkbox[name=checkBox]").prop('checked', false);
-    $("#sec6").hide();
-    $("#sec1").show();
+    togglePage("sec6", "sec1");
   }); //again click
 }); //jQuery
