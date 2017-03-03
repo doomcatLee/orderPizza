@@ -1,10 +1,8 @@
 // Back-End
 
-
-//global var
+//global var to be reused
 var pizza;
 var user;
-
 
 function Customer(name, address, pizzaArray, totalCost) {
   this.name = name;
@@ -17,7 +15,6 @@ Customer.prototype.addPizza = function(pizza) {
   pizza.pizzaCost = 10;
   $("#pizzaInfo").append("<ul>" + "<li>Pizza toppings: <span id='topping'></span></li>" + "<li>Pizza size: <span id='size'></span></li>" + "<li>Cost: $<span id='cost'></span></li>" + "</ul>");
 }
-
 
 function Pizza(toppingArray, size, pizzaCost) {
   this.toppingArray = [];
@@ -53,11 +50,10 @@ Pizza.prototype.calculateCost = function() {
   return this.pizzaCost;
 }
 
-//jQuery
+// jQuery
 $(function() {
-
   $("button#main").click(function() {
-    user = new Customer();
+    user = new Customer("", "");
     pizza = new Pizza();
     $("#sec1").hide();
     $("#sec2").fadeIn();
@@ -92,7 +88,7 @@ $(function() {
   $("button#cost").click(function() {
     $("#sec4").hide();
     $("#sec5").fadeIn();
-  });
+  }); //next click
 
   $("button#addPizza").click(function() {
     user.addPizza(pizza);
@@ -101,28 +97,26 @@ $(function() {
     $("input:checkbox[name=checkBox]").prop('checked', false);
     $("#sec4").hide();
     $("#sec2").fadeIn();
-  });
+  }); //add Pizza click
 
   $("form#order").submit(function() {
     event.preventDefault();
-    user.name = $("#name").val();
-    user.address = "";
+    if ($("#name").val() === "") {
+      alert("We can't deliver to you without all the information!");
+      return false;
+    }
     for (var i = 0; i < 3; i++) {
       if ($("#" + i).val() === "") {
-        alert("Please fill in all the required form");
+        alert("We can't deliver to you without all the information!");
         return false;
       }
       user.address += ($("#" + i).val() + " ");
     }
-    if (user.name === "") {
-      alert("Please fill in all the required form");
-      return false;
-    } else {
-      $("span#name").text(user.name);
-      $("span#address").text(user.address);
-      $("#sec5").hide();
-      $("#sec6").show();
-    }
+    user.name = $("#name").val();
+    $("span#name").text(user.name);
+    $("span#address").text(user.address);
+    $("#sec5").hide();
+    $("#sec6").show();
   }); //order form
 
   $("#again").click(function() {
@@ -130,7 +124,5 @@ $(function() {
     $("input:checkbox[name=checkBox]").prop('checked', false);
     $("#sec6").hide();
     $("#sec2").show();
-  });
-
+  }); //again click
 }); //jQuery
-//jQuery
