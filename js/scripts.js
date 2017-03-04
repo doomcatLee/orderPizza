@@ -1,8 +1,7 @@
 // Back-End
 
 //global var to be reused
-var pizza;
-var user;
+var pizza, user;
 
 function Customer(name, address, pizzaArray, totalCost) {
   this.name = name;
@@ -124,7 +123,6 @@ $(function() {
   }); //order form
 
   $("#again").click(function() {
-    resetFields();
-    togglePage("sec6", "sec1");
+    location.reload();
   }); //again click
 }); //jQuery
