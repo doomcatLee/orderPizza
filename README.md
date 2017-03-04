@@ -13,12 +13,11 @@ Allows user to order a pizza. User chooses multiple toppings and 4 sizes. Base c
 
 Behavior|Input|Output
 ---|---|---
-User picks a topping, returns that toppings array to the Pizza object| chooseTopping() | ["pep", "bacon", "onions"]
-User picks a size, returns that size to the pizza object | chooseSize() | "medium"
-Calculate the cost of the pizza depending on size and number of toppings | calculateCost()|"$40"
-If user finishes order or add another pizza, add current cost to the total user cost| addMorePizza()|
-If user leaves one of the inputs blank, throw an error | missing input| alert("missing info")
-
+Output returns properties of pizza Object|pizza object| toppings, size, cost
+Output calculates the total cost of the one or more pizzas | pizza object| total cost
+Output returns user name and address in a sentence| name, address|$NAME delivering at $ADDRESS
+Output takes array of pizza object from customer object | array of pizza object| user object
+Input form throws an error when one of the field is empty | empty input| error
 
 ## Setup/Installation Requirements
 ```
